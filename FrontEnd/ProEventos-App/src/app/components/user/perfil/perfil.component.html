@@ -1,0 +1,126 @@
+<app-titulo [titulo]="'Perfil'"></app-titulo>
+
+<div class="card rounded shadow-sm mb-3">
+    <form>
+        <div class="row p-2">
+            <div class="col-lg-3 pt-1">
+                <div class="card ">
+                    <div class="card-header"></div>
+                    <div class="d-flex align-self-center pt-3">
+                        <a>
+                            <img
+                            src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRbezqZpEuwGSvitKy3wrwnth5kysKdRqBW54cAszm_wiutku3R"
+                            name="aboutme" width="120" height="120" class="rounded-circle">
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <div class="h4 text-center ">@UserName</div>
+                        <div class="h7 text-bold pb-1"><b>Nome:</b> Miracles Lee Cross</div>
+                        <div class="h7">
+                            Developer of web applications, JavaScript, PHP, Java, Python, Ruby, Java, Node.js,
+                            etc.
+                        </div>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <div class="row">
+                                <div class="col-6 text-center border-right">
+                                    <div class="h5">1342</div>
+                                    <div class="h6 text-muted">Eventos Ministrados</div>
+                                </div>
+                                <div class="col-6 text-center">
+                                    <div class="h5">1342</div>
+                                    <div class="h6 text-muted">Eventos Participados</div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="card-footer"></div>
+                </div>
+            </div>
+            
+            <div class="col-lg-9">
+                <div class="form-group col-12 ">
+                    <h3 class="border-bottom">Detalhe Perfil</h3>
+                </div>
+                
+                <div class="form-row d-md-flex gap-2 ">
+                    <div class="form-group col-md-2 mt-sm-3">
+                        <label>Título</label>
+                        <select class="form-control mt-1">
+                            <option value=""></option>
+                            <option value="0">Não Quero</option>
+                            <option value="Senhorita">Tecnólogo(a)</option>
+                            <option value="Senhorita">Bacharel</option>
+                            <option value="Senhorita">Especialista</option>
+                            <option value="Senhorita">Pós Graduado(a)</option>
+                            <option value="Senhorita">Mestre</option>
+                            <option value="Senhorita">Doutor(a)</option>
+                            <option value="Senhorita">Pós Doc</option>
+                        </select>
+                    </div>
+                    <div class="form-group col mt-sm-3">
+                        <label>Primeiro Nome</label>
+                        <input type="text" class="form-control mt-1"/>
+                    </div>
+                    <div class="form-group col mt-sm-3">
+                        <label>Último nome</label>
+                        <input type="text" class="form-control mt-1"/>
+                    </div>
+                </div>
+
+                <div class="form-row d-md-flex gap-2 ">
+                    <div class="form-group col mt-sm-3">
+                        <label>E-mail</label>
+                        <input type="text" class="form-control mt-1" />
+                    </div>
+                    <div class="form-group col mt-sm-3">
+                        <label>Telefone</label>
+                        <input type="text" class="form-control mt-1" />
+                    </div>
+                    <div class="form-group col mt-sm-3">
+                        <label>Função</label>
+                        <select class="form-control mt-1">
+                            <option value=""></option>
+                            <option value="Participante">Participante</option>
+                            <option value="Palestrante">Palestrante</option>
+                        </select>
+                    </div>
+                </div>
+
+                <form-group class="col-12">
+                    <label>Descrição</label>
+                    <input type="text" class="form-control mt-1" />
+                </form-group>
+
+                <div>
+                    <h3 class="pt-3 border-bottom">Mudar Senha</h3>
+                    <p>Caso mude de senha, preencha os campos abaixo:</p>
+                </div>
+                <div class="form-row d-sm-flex gap-2">
+                    <div class="form-group col">
+                        <label>Senha</label>
+                        <input type="password" class="form-control mt-1" />
+                    </div>
+                    <div class="form-group col">
+                        <label>Confirmar Senha</label>
+                        <input type="password" class="form-control mt-1" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card-footer p-2 mt-3">
+            <div class="d-flex">
+                <button class="btn btn-outline-secondary mr-auto border" style="margin-right: auto;">
+                    Cancelar Alteração
+                </button>
+                <button class="btn btn-success">
+                    <!-- <span class="spinner-border spinner-border-sm mr-1" style="margin-right: 15px;"></span> -->
+                    Salvar Alteração
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
