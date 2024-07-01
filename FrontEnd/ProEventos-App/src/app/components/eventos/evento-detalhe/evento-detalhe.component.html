@@ -161,12 +161,12 @@
     <p>Clique em Lote para adicionar e preencher novos Lotes</p>
     
     <div class="form-row p-1">
-      <div class="col">
+      <div class="col" [formGroup]="form">
         <div 
-          formArrayName="lotes" *ngFor="let lotes of lotes.controls; let i=index"
+          formArrayName="lotes" *ngFor="let lotes of lotes.controls; let indice=index"
           class="card p-2 mb-3 shadow-sm"    
           >
-          <fieldset class="form-group">
+          <fieldset [formControlName]="indice" class="form-group">
             <legend class="d-flex justify-content-between capitalize">
               <button class="p-2 btn btn-sm btn-outline-warning mb-3 d-flex"
                 tooltip="Excluir Lote"
@@ -183,6 +183,7 @@
               <label>Nome</label>
               <input 
                 type="text" class="form-control"
+                [ngClass]="cssValidator(lotes.get(indice+'.nome'))"
                 formControlName="nome"
                 placeholder="Lote">
             </div>
@@ -192,6 +193,9 @@
               <input
                 type="text" class="form-control"
                 formControlName="quantidade"
+                [ngClass]="{'is-invalid': 
+                  lotes.get(indice+'.quantidade').errors && 
+                  lotes.get(indice+'.quantidade').touched }"
                 placeholder="000">
             </div>
             <div class="form-group col col-sm-6">

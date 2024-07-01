@@ -1,6 +1,6 @@
 import { EventoService } from '@app/services/evento.service';
 import { Component, Input, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { Evento } from '@app/models/Evento';
@@ -113,6 +113,13 @@ export class EventoDetalheComponent implements OnInit {
       dataFim: [lote.dataFim, Validators.required],
       quantidade: [lote.quantidade, Validators.required] 
     })
+  }
+
+  cssValidator(campoForm: AbstractControl | null): any {
+    return { 'is-invalid': 
+        campoForm.errors &&
+        campoForm.touched
+    }
   }
 
   public limpaForm(): void {
