@@ -1,11 +1,12 @@
 import { EventoService } from '@app/services/evento.service';
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { Evento } from '@app/models/Evento';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
+import { Lote } from '@app/models/Lote';
 
 @Component({
   selector: 'app-evento-detalhe',
@@ -29,6 +30,10 @@ export class EventoDetalheComponent implements OnInit {
       containerClass: 'theme-default',
       showWeekNumbers: false,
     };
+  }
+
+  get lotes(): FormArray {
+    return this.form.get('lotes') as FormArray;
   }
 
   constructor(
@@ -91,7 +96,23 @@ export class EventoDetalheComponent implements OnInit {
       telefone: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       imagemURL: ['', Validators.required],
+      lotes: this.fbuilder.array([])
     });
+  }
+
+  adicionarLote(): void {
+    this.lotes.push(this.criarLote({id: 0} as Lote));
+  }
+
+  criarLote(lote: Lote): FormGroup {
+    return this.fbuilder.group({
+      id: [lote.id, Validators.required],
+      nome: [lote.nome, Validators.required],
+      preco: [lote.preco, Validators.required],
+      dataInicio: [lote.dataInicio, Validators.required],
+      dataFim: [lote.dataFim, Validators.required],
+      quantidade: [lote.quantidade, Validators.required] 
+    })
   }
 
   public limpaForm(): void {

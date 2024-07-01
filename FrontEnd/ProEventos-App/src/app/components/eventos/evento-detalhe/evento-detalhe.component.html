@@ -162,7 +162,10 @@
     
     <div class="form-row p-1">
       <div class="col">
-        <div>
+        <div 
+          formArrayName="lotes" *ngFor="let lotes of lotes.controls; let i=index"
+          class="card p-2 mb-3 shadow-sm"    
+          >
           <fieldset class="form-group">
             <legend class="d-flex justify-content-between capitalize">
               <button class="p-2 btn btn-sm btn-outline-warning mb-3 d-flex"
@@ -184,17 +187,16 @@
                 placeholder="Lote">
             </div>
 
-            <div class="form-group col-md-4">
+            <div class="form-group col col-sm-6">
               <label>Quantidade</label>
-              <input 
+              <input
                 type="text" class="form-control"
                 formControlName="quantidade"
                 placeholder="000">
             </div>
-
-            <div class="form-group col-md-4">
+            <div class="form-group col col-sm-6">
               <label>Preço</label>
-              <input 
+              <input
                 type="text" currencyMask class="form-control"
                 formControlName="preco"
                 placeholder="R$ 0,00">
@@ -220,7 +222,10 @@
       </div>
     </div>
 
-    <button class="d-flex mt-3 p-2 btn btn-outline-primary">
+    <button 
+      class="d-flex mt-3 p-2 btn btn-outline-primary"
+      (click)="adicionarLote()"
+      >
       <i class="fa fa-plus-circle my-1"></i>
       <b class="ml-1">Lote</b>
     </button>
