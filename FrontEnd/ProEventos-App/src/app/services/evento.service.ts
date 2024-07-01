@@ -8,7 +8,7 @@ import { take } from 'rxjs/operators';
 
 export class EventoService {
 
-  baseUrl = ('https://localhost:5001/api/Eventos');
+  baseUrl = ('https://localhost:5001/api/eventos');
 
   // o pipe(take(1)) desenscreve do observable
 
