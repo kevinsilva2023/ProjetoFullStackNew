@@ -1,20 +1,28 @@
+<!--Evento-->
+<div class="card shadow-sm mb-3 p-1">
+  <div class="d-flex align-items-center gap-2  text-danger" style="margin-left: 10px;">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <b>
+      Todos os campos &nbsp;
+      <i class="fa-solid fa-asterisk"></i>
+      &nbsp; são obrigatórios!
+    </b>
+  </div>
+</div>
+
 <div class="card shadow-sm">
+
   <form [formGroup]="form">
-    <!-- <p>Form value: {{ form.value | json }}</p>
-    <p>Form valid: {{ form.status | json }}</p> -->
-    
+    <!-- <p>Form value: {{ form.value | json }}</p> -->
+    <!-- <p>Form valid: {{ form.status | json }}</p> -->
+
     <div class="p-3">
       <!--Form Tema-->
       <div class="form-row">
         <div class="form-group col-md-12 mt-sm-3">
-          <label>Tema</label>
-          <input 
-            type="text" 
-            class="form-control mt-1" 
-            [ngClass]="{'is-invalid': f.tema.errors && f.tema.touched}" 
-            formControlName="tema" 
-            placeholder="Insira o Tema"
-          >
+          <label>* Tema</label>
+          <input type="text" class="form-control mt-1" [ngClass]="{'is-invalid': f.tema.errors && f.tema.touched}"
+            formControlName="tema" placeholder="Insira o Tema">
           <div *ngIf="f.tema.errors?.required" class="invalid-feedback">
             Tema é obrigatório.
           </div>
@@ -30,24 +38,18 @@
       <!--Form Local e Data-->
       <div class="form-row d-md-flex gap-2">
         <div class="form-group col-md-8 mt-sm-3">
-          <label>Local</label>
-          <input 
-            type="text"
-            class="form-control mt-1"
-            [ngClass]="{'is-invalid': f.local.errors && f.local.touched}"
+          <label>* Local</label>
+          <input type="text" class="form-control mt-1" [ngClass]="{'is-invalid': f.local.errors && f.local.touched}"
             formControlName="local">
           <div *ngIf="f.local.errors?.required" class="invalid-feedback">
             Local é obrigatório.
           </div>
         </div>
         <div class="form-group col mt-sm-3">
-          <label>Data e Hora</label>
+          <label>* Data e Hora</label>
           <input type="datetime" class="form-control mt-1"
-            [ngClass]="{'is-invalid': f.dataEvento.errors && f.dataEvento.touched}"
-            bsDatepicker
-            [bsConfig]="presetDatePicker"
-            formControlName="dataEvento"
-          >
+            [ngClass]="{'is-invalid': f.dataEvento.errors && f.dataEvento.touched}" bsDatepicker
+            [bsConfig]="presetDatePicker" formControlName="dataEvento">
           <div class="invalid-feedback">
             Data e Hora são obrigatórios.
           </div>
@@ -59,13 +61,9 @@
 
         <!--Qtd Pessoas-->
         <div class="form-group col-md-2 mt-sm-3">
-          <label>Qtd Pessoas</label>
-          <input 
-            type="text"
-            class="form-control mt-1"
-            [ngClass]="{'is-invalid': f.qtdPessoas.errors && f.qtdPessoas.touched}"
-            formControlName="qtdPessoas"
-          >
+          <label>* Qtd Pessoas</label>
+          <input type="text" class="form-control mt-1"
+            [ngClass]="{'is-invalid': f.qtdPessoas.errors && f.qtdPessoas.touched}" formControlName="qtdPessoas">
           <div *ngIf="f.qtdPessoas.errors?.required" class="invalid-feedback">
             Qtd é obrigatório.
           </div>
@@ -76,29 +74,20 @@
 
         <!--Telefone-->
         <div class="form-group col-md-3 mt-sm-3">
-          <label>Telefone</label>
-          <input 
-            type="text"
-            class="form-control mt-1"
-            [ngClass]="{'is-invalid': f.telefone.errors && f.telefone.touched}"  
-            formControlName="telefone"
-            placeholder="(00) 0 0000-0000"
-          >
+          <label>* Telefone</label>
+          <input type="tel" class="form-control mt-1"
+            [ngClass]="{'is-invalid': f.telefone.errors && f.telefone.touched}" formControlName="telefone"
+            placeholder="(00) 0 0000-0000">
           <div class="invalid-feedback">
             Telefone é obrigatório.
           </div>
         </div>
-        
+
         <!--E-mail-->
         <div class="form-group col-md-4 mt-sm-3">
-          <label>Email</label>
-          <input 
-            type="text"
-            class="form-control mt-1"
-            [ngClass]="{'is-invalid': f.email.errors && f.email.touched}"
-            formControlName="email"
-            placeholder="E-mail"
-          >
+          <label>* Email</label>
+          <input type="text" class="form-control mt-1" [ngClass]="{'is-invalid': f.email.errors && f.email.touched}"
+            formControlName="email" placeholder="E-mail">
           <div *ngIf="f.email.errors?.required" class="invalid-feedback">
             Email é obrigatório.
           </div>
@@ -109,14 +98,10 @@
 
         <!--Imagem-->
         <div class="form-group col mt-sm-3">
-          <label>Imagem</label>
-          <input
-            type="text"
-            class="form-control mt-1"
-            [ngClass]="{'is-invalid': f.imagemURL.errors && f.imagemURL.touched}"
-            formControlName="imagemURL"
-            placeholder="Imagem"
-          >
+          <label>* Imagem</label>
+          <input type="text" class="form-control mt-1"
+            [ngClass]="{'is-invalid': f.imagemURL.errors && f.imagemURL.touched}" formControlName="imagemURL"
+            placeholder="Imagem">
           <div class="invalid-feedback">
             Imagem é obrigatório.
           </div>
@@ -126,18 +111,16 @@
 
     <div class="card-footer p-2">
       <div class="d-flex">
-        <button 
-          class="btn btn-outline-secondary border" 
-          (click)="limpaForm()"
-          style="margin-right: auto;"
-        >
-          Cancelar Alteração
-        </button>
-        <button 
-          [ngClass]="{'btn-danger': !form.valid}" 
-          class="btn btn-success" [disabled]="!form.valid"
-          (click)="salvarAlteracao()"
-          >
+        <div class="mr-a">
+          <button class="btn btn-outline-secondary border" (click)="voltarEventos()" style="margin-right: 10px;">
+            Voltar
+          </button>
+          <button class="btn btn-outline-secondary border" (click)="limpaForm()">
+            Limpar Formulário
+          </button>
+        </div>
+        <button [ngClass]="{'btn-danger': !form.valid}" class="btn btn-success" [disabled]="!form.valid"
+          (click)="salvarEvento()">
           <!-- <span class="spinner-border spinner-border-sm" style="margin-right: 15px;"></s pan> -->
           Salvar Evento
         </button>
@@ -147,8 +130,13 @@
   </form>
 </div>
 
+
 <!-- LOTE -->
-<div class="card rounded shadow-sm my-3">
+<div class="card rounded shadow-sm my-3" *ngIf="modoEditar">
+
+  <!-- <p>Form value: {{ form.controls.lotes.value | json }}</p> -->
+  <!-- <p>Form valid: {{ form.controls.lotes.status | json }}</p> -->
+
   <div class="p-3">
 
     <div class="d-flex border-bottom">
@@ -159,95 +147,90 @@
     </div>
 
     <p>Clique em Lote para adicionar e preencher novos Lotes</p>
-    
+
     <div class="form-row p-1">
+      <button class="d-flex mb-3 p-2 btn btn-outline-primary" (click)="adicionarLote()">
+        <i class="fa fa-plus-circle my-1"></i>
+        <b class="ml-1">Lote</b>
+      </button>
+
       <div class="col" [formGroup]="form">
-        <div 
-          formArrayName="lotes" *ngFor="let lotes of lotes.controls; let indice=index"
-          class="card p-2 mb-3 shadow-sm"    
-          >
-          <fieldset [formControlName]="indice" class="form-group">
-            <legend class="d-flex justify-content-between capitalize">
-              <button class="p-2 btn btn-sm btn-outline-warning mb-3 d-flex"
-                tooltip="Excluir Lote"
-                [adaptivePosition]="false"
-                [delay]="500"
-                placement="left">
-              <i class="fa fa-window-close my-1"></i>
-              <b class="ml-1 d-none d-sm-block">Excluir</b>
-            </button>
-          </legend>
+        <div formArrayName="lotes" *ngFor=" let lote of lotes.controls; let indice=index" class="card p-2 mb-3 shadow-sm">
+          <fieldset [formGroupName]="indice" class="form-group">
+            <legend class="d-flex justify-content-between capitalize p-2">
+              {{ retornaTituloDoLote(lotes.get(indice+'.nome').value) }}
 
-          <div class="row">
-            <div class="form-group col-md-4">
-              <label>Nome</label>
-              <input 
-                type="text" class="form-control"
-                [ngClass]="cssValidator(lotes.get(indice+'.nome'))"
-                formControlName="nome"
-                placeholder="Lote">
-            </div>
+              <button class="p-2 btn btn-sm btn-outline-warning d-flex"
+                (click)="removerLote(openModalTemplate, indice)"
+              >
+                <i class="fa fa-window-close my-1"></i>
+                <b class="ml-1 d-none d-sm-block">Excluir</b>
+              </button>
+            </legend>
 
-            <div class="form-group col col-sm-6">
-              <label>Quantidade</label>
-              <input
-                type="text" class="form-control"
-                formControlName="quantidade"
-                [ngClass]="{'is-invalid': 
-                  lotes.get(indice+'.quantidade').errors && 
-                  lotes.get(indice+'.quantidade').touched }"
-                placeholder="000">
-            </div>
-            <div class="form-group col col-sm-6">
-              <label>Preço</label>
-              <input
-                type="text" currencyMask class="form-control"
-                formControlName="preco"
-                placeholder="R$ 0,00">
-            </div>
+            <div class="row">
+              <div class="form-group col-md-4 mb-2 ">
+                <label>* Nome</label>
+                <input [ngClass]="cssValidator(lote.get('nome'))" type="text" class="form-control"
+                  formControlName="nome" placeholder="Lote">
+              </div>
 
-            <div class="form-group col-md-4">
-              <label>Data Início</label>
-              <input 
-                type="text" class="form-control"
-                formControlName="dataInicio"
-                placeholder="01/01/2019">
+              <div class="form-group col-md-4 mb-2 ">
+                <label>* Quantidade</label>
+                <input [ngClass]="cssValidator(lote.get('quantidade'))" type="text" class="form-control"
+                  formControlName="quantidade" placeholder="000">
+              </div>
+
+              <div class="form-group col-md-4 mb-2 ">
+                <label>* Preço</label>
+                <input [ngClass]="cssValidator(lote.get('preco'))" type="text"
+                  class="form-control"
+                  currencyMask 
+                  [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',', align: 'left' }"
+                  formControlName="preco" placeholder="R$ 0,00"
+                >
+              </div>
+
+              <!-- <div class="form-group col-md-4 mb-2 ">
+                <label>Data Início</label>
+                <input type="text" class="form-control" formControlName="dataInicio" placeholder="01/01/2019">
+              </div>
+
+              <div class="form-group col-md-4 mb-3">
+                <label>Data Fim</label>
+                <input type="text" class="form-control" formControlName="dataFim" placeholder="01/01/2019">
+              </div> -->
             </div>
 
-            <div class="form-group col-md-4">
-              <label>Data Fim</label>
-              <input 
-                type="text" class="form-control"
-                formControlName="dataFim"
-                placeholder="01/01/2019">
-            </div>
-          </div>
-        </fieldset>
+          </fieldset>
+        </div>
       </div>
     </div>
+  </div>
 
-    <button 
-      class="d-flex mt-3 p-2 btn btn-outline-primary"
-      (click)="adicionarLote()"
-      >
-      <i class="fa fa-plus-circle my-1"></i>
-      <b class="ml-1">Lote</b>
-    </button>
-
+  <div class="card-footer">
+    <div class="d-flex">
+      <button class="btn btn-outline-secondary mr-a border">
+        Cancelar Alteração
+      </button>
+      <button 
+        [ngClass]="{'btn-danger': !form.controls.lotes.valid }" class="btn btn-success" 
+        [disabled]="!form.controls.lotes.valid" (click)="salvarLotes()">
+        Salvar Lote
+      </button>
+    </div>
   </div>
 </div>
 
-<div class="card-footer">
-  <div class="d-flex">
-    <button class="btn btn-outline-secondary mr-a border">
-      Cancelar Alteração
-    </button>
-    <button 
-      class="btn btn-success" [disabled]="!form.valid"
-      [ngClass]="{'btn-danger': !form.valid}" 
-    >
-      Salvar Lotes
-    </button>
+<br>
+<br>
+
+<ng-template #openModalTemplate>
+  <div class="modal-body text-center">
+      <p>Tem certeza que quer deletar este Lote? {{ this.loteAtual.nome }}</p>
+      <div class="d-flex gap-2 justify-content-center">
+        <button type="button" class="btn btn-danger" (click)="confirmaDeleteLote()">Sim</button>
+        <button type="button" class="btn btn-outline-secondary" (click)="declineDeleteLote()">Não</button>
+      </div>
   </div>
-</div>
-</div>
+</ng-template>
